@@ -19,9 +19,9 @@ export const metadata = {
 
 export default function BlogsPage() {
   return (
-    <section className="mx-auto max-w-6xl p-8">
-      <h1 className="text-3xl font-bold mb-2">📝 Technical Blog</h1>
-      <p className="text-stone-700 mb-6">
+    <section className="mx-auto max-w-6xl p-4 sm:p-6 md:p-8">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-2">📝 Technical Blog</h1>
+      <p className="text-stone-700 mb-6 text-sm sm:text-base">
         Technical articles, cybersecurity insights, and best practices from the field.
       </p>
 
@@ -29,20 +29,20 @@ export default function BlogsPage() {
         {posts.map((p) => (
           <article
             key={p.slug}
-            className="rounded-xl border border-black/10 bg-white p-5 hover:shadow transition"
+            className="rounded-xl border border-black/10 bg-white p-4 sm:p-5 hover:shadow transition"
           >
-            <div className="flex items-center gap-2 text-xs text-stone-500">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-xs text-stone-500">
               <time dateTime={p.date}>{new Date(p.date).toLocaleDateString()}</time>
-              <span>•</span>
-              <ul className="flex gap-2">
+              <span className="hidden sm:inline">•</span>
+              <ul className="flex flex-wrap gap-2">
                 {p.tags.map((t) => (
-                  <li key={t} className="px-2 py-0.5 rounded bg-stone-100">
+                  <li key={t} className="px-2 py-0.5 rounded bg-stone-100 text-xs">
                     {t}
                   </li>
                 ))}
               </ul>
             </div>
-            <h2 className="mt-2 text-lg font-semibold">
+            <h2 className="mt-2 text-base sm:text-lg font-semibold">
               {p.status === 'coming-soon' ? (
                 <span className="text-stone-600">{p.title}</span>
               ) : (
@@ -51,7 +51,7 @@ export default function BlogsPage() {
                 </Link>
               )}
             </h2>
-            <p className="mt-1 text-stone-700">{p.excerpt}</p>
+            <p className="mt-1 text-stone-700 text-sm sm:text-base">{p.excerpt}</p>
             {p.status === 'coming-soon' ? (
               <span className="mt-3 inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">
                 Coming Soon

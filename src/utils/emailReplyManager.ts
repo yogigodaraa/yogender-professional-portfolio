@@ -28,7 +28,8 @@ export class EmailReplyManager {
       'Reply-To': this.config.replyToEmail,
       'X-Tracking-ID': trackingId,
       'X-Original-Sender': originalSender,
-      'X-Portfolio-Source': 'onepieceportfolio',
+      'Content-Type': 'application/json',
+      'X-Portfolio-Source': 'yogender-professional-portfolio',
     };
   }
 

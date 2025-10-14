@@ -3,27 +3,11 @@ import Link from "next/link";
 // for now, keep posts inline. Later you can load from a CMS or markdown files.
 const posts = [
   {
-    slug: "cybersecurity-fundamentals",
-    title: "Cybersecurity Fundamentals for Modern Networks",
-    excerpt: "Essential cybersecurity principles and best practices for securing modern network infrastructure.",
-    date: "2025-11-01",
-    tags: ["cybersecurity", "networking", "fundamentals"],
-    status: "coming-soon"
-  },
-  {
-    slug: "blue-team-strategies",
-    title: "Blue Team Defense Strategies",
-    excerpt: "Comprehensive guide to blue team methodologies and defensive cybersecurity practices.",
-    date: "2025-11-15",
-    tags: ["blue-team", "defense", "incident-response"],
-    status: "coming-soon"
-  },
-  {
-    slug: "network-security-automation",
-    title: "Automating Network Security Monitoring",
-    excerpt: "How to implement automated security monitoring solutions for enterprise networks.",
-    date: "2025-12-01",
-    tags: ["automation", "monitoring", "security"],
+    slug: "blue-team-level-1-journey",
+    title: "Blue Team Level 1: My Journey from Start to Certification",
+    excerpt: "My complete journey through the Blue Team Level 1 certification - how I started, what I learned, the challenges I faced, and how I successfully earned the certification.",
+    date: "2025-10-14",
+    tags: ["blue-team", "certification", "journey", "btl1"],
     status: "coming-soon"
   }
 ];

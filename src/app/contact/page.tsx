@@ -243,6 +243,10 @@ export default function ContactPage() {
                 <li>• Open source contributions</li>
                 <li>• Tech mentoring & knowledge sharing</li>
                 <li>• Freelance opportunities</li>
+                <li>• Network engineer positions</li>
+                <li>• Cyber security analyst roles</li>
+                <li>• Website management projects</li>
+                <li>• AI entry level positions</li>
               </ul>
             </div>
           </div>

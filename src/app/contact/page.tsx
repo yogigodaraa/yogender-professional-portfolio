@@ -238,15 +238,11 @@ export default function ContactPage() {
                 Open to Opportunities
               </h3>
               <ul className="text-sm text-gray-700 space-y-1">
-                <li>• Full-stack development projects</li>
-                <li>• Cybersecurity collaborations</li>
-                <li>• Open source contributions</li>
-                <li>• Tech mentoring & knowledge sharing</li>
-                <li>• Freelance opportunities</li>
                 <li>• Network engineer positions</li>
                 <li>• Cyber security analyst roles</li>
                 <li>• Website management projects</li>
                 <li>• AI entry level positions</li>
+                <li>• IT support roles</li>
               </ul>
             </div>
           </div>

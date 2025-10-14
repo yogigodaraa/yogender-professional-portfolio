@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {[
             {
               title: "One Piece Anime Portfolio Website",
@@ -28,6 +28,18 @@ export default function ProjectsPage() {
               description: "Advanced cybersecurity log analysis platform with real-time monitoring, threat detection, and automated incident response capabilities.",
               technologies: ["Python", "Elasticsearch", "Kibana", "Machine Learning", "Django", "PostgreSQL"],
               category: "Cybersecurity"
+            },
+            {
+              title: "Professional Portfolio Website",
+              description: "A modern, professional portfolio website showcasing cybersecurity expertise. Features OKLCH color system, AI-powered chatbot, responsive design, and professional theme transformation.",
+              technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Google Gemini AI", "OKLCH Colors"],
+              category: "Web Development"
+            },
+            {
+              title: "Enterprise Network Infrastructure - EVE-NG",
+              description: "Comprehensive enterprise-level network design and implementation using EVE-NG virtualization platform. Features advanced routing protocols, network security, and scalable architecture for large organizations.",
+              technologies: ["BGP", "OSPF", "NAT", "DHCP", "VLAN", "VPN", "EVE-NG", "Cisco IOS", "Network Security"],
+              category: "Networking"
             }
           ].map((project, index) => (
             <div

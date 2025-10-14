@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ChatBot from '@/components/ChatBot';
 
 export default function Home() {
   return (
@@ -197,6 +198,9 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      
+      {/* ChatBot Component */}
+      <ChatBot />
     </div>
   );
 }

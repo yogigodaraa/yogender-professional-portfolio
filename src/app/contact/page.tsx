@@ -66,13 +66,13 @@ export default function ContactPage() {
       <section className="mx-auto max-w-6xl p-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4 text-gray-800">
-            🏴‍☠️ Join the Crew
+            📧 Contact Me
           </h1>
           <p className="text-lg text-gray-600 mb-2">
-            Send a message in a bottle — I'll reply fast! ⚡️
+            Let's discuss your cybersecurity and networking needs — I'll respond promptly! ⚡️
           </p>
           <p className="text-sm text-gray-500">
-            Ready to embark on a new adventure together?
+            Ready to collaborate on securing your digital infrastructure?
           </p>
         </div>
 

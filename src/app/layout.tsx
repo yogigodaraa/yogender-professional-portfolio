@@ -3,7 +3,7 @@
 import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -53,6 +53,8 @@ export default function RootLayout({
 }
 
 function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <header 
       className="sticky top-0 z-20 backdrop-blur-sm border-b"
@@ -81,8 +83,67 @@ function Header() {
 
         <div className="md:hidden flex items-center gap-2">
           <ThemeButton />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 rounded-lg transition-colors"
+            style={{
+              backgroundColor: 'var(--secondary)',
+              color: 'var(--secondary-foreground)'
+            }}
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <svg 
+              className="h-5 w-5" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              {isMobileMenuOpen ? (
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M6 18L18 6M6 6l12 12" 
+                />
+              ) : (
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M4 6h16M4 12h16M4 18h16" 
+                />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="md:hidden border-t"
+          style={{ borderColor: 'var(--border)' }}
+        >
+          <nav className="px-4 py-2 space-y-1">
+            <MobileNavLink href="/about" onClick={() => setIsMobileMenuOpen(false)}>
+              About
+            </MobileNavLink>
+            <MobileNavLink href="/projects" onClick={() => setIsMobileMenuOpen(false)}>
+              Projects
+            </MobileNavLink>
+            <MobileNavLink href="/experience" onClick={() => setIsMobileMenuOpen(false)}>
+              Experience
+            </MobileNavLink>
+            <MobileNavLink href="/blogs" onClick={() => setIsMobileMenuOpen(false)}>
+              Blog
+            </MobileNavLink>
+            <MobileNavLink href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+              Contact
+            </MobileNavLink>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
@@ -93,6 +154,36 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
       href={href}
       className="transition-colors nav-link"
       style={{ color: 'var(--muted-foreground)' }}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MobileNavLink({ 
+  href, 
+  children, 
+  onClick 
+}: { 
+  href: string; 
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="block px-3 py-2 rounded-lg text-base font-medium transition-colors"
+      style={{ 
+        color: 'var(--foreground)',
+        backgroundColor: 'transparent'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = 'var(--muted)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = 'transparent';
+      }}
     >
       {children}
     </Link>

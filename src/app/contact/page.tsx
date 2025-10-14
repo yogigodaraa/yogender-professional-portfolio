@@ -69,7 +69,7 @@ export default function ContactPage() {
             📧 Contact Me
           </h1>
           <p className="text-lg text-gray-600 mb-2">
-            Let's discuss your cybersecurity and networking needs — I'll respond promptly! ⚡️
+            Let's discuss your cybersecurity and networking needs, I'll respond promptly! ⚡️
           </p>
           <p className="text-sm text-gray-500">
             Ready to collaborate on securing your digital infrastructure?

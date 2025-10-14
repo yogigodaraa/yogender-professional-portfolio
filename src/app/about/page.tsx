@@ -1,84 +1,165 @@
 export default function AboutPage() {
   return (
-    <main className="min-h-screen p-8 space-y-16">
-      {/* Skills & Certs */}
-      <section>
-        <h1 className="font-[var(--font-pirata)] text-4xl mb-6 text-passion">
-          📜 Wanted Posters
-        </h1>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          <div className="border-2 border-black p-6 text-center bg-stone-50">
-            Routing — 1,000,000 Berries
-          </div>
-          <div className="border-2 border-black p-6 text-center bg-stone-50">
-            Switching — 1,500,000 Berries
-          </div>
-          <div className="border-2 border-black p-6 text-center bg-stone-50">
-            Cybersecurity — 800,000 Berries
-          </div>
+    <main className="min-h-screen py-20">
+      <div className="mx-auto max-w-4xl px-4">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+            About <span style={{ color: 'var(--primary)' }}>Yogender Godara</span>
+          </h1>
+          <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+            Cybersecurity & Network Professional with 5+ years of experience in securing digital infrastructure
+          </p>
         </div>
-      </section>
 
-      {/* Education */}
-      <section>
-        <h2 className="font-[var(--font-pirata)] text-3xl mb-6 text-ocean">
-          🎓 Academy
-        </h2>
-        <ul className="space-y-4">
-          <li>
-            <strong>Murdoch University</strong>, Master of Information Technology
-            <ul className="ml-4 mt-2 space-y-1">
-              <li>• Major in Cybersecurity and Networking</li> 
-              <li>• Research in IoT devices security using Machine Learning</li>
-              <li>• GPA 3.33/4</li>
-            </ul>
-          </li>
-          <li>
-            <strong>University of Delhi</strong>, BSc Mathematics (Honours)
-            <ul className="ml-4 mt-2 space-y-1">
-              <li>• Major in Mathematics</li> 
-              <li>• Minor in Physics</li>
-              <li>• GPA 8.4/10</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-      {/* Certifications */}
-      <section>
-        <h2 className="font-[var(--font-pirata)] text-3xl mb-6 text-ocean">
-          🎓 Certifications
-        </h2>
-        <ul className="space-y-4">
-          <li>
-            <strong>Blue Team Level 1</strong>,  Security Blue Team Academy
-          </li>
-          <li>
-            <strong>CompTIA Security+ SYO-701</strong>,  CompTIA
-          </li>
-          <li>
-            <strong>Cisco Certified Network Professional-ENCOR (CCNP)</strong>,  Cisco
-          </li>
-          <li>
-            <strong>Cisco Certified Network Professional-ENRSI (CCNP)</strong>,  Cisco
-          </li>
-          <li>
-            <strong>Mental Health in Cyber Security</strong>,  Security Blue Team Academy
-          </li>
-        </ul>
-      </section>
+        {/* Bio Section */}
+        <section className="mb-20">
+          <div
+            className="p-8 rounded-2xl"
+            style={{
+              backgroundColor: 'var(--card)',
+              border: '1px solid var(--border)',
+              boxShadow: 'var(--shadow-lg)'
+            }}
+          >
+            <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+              Professional Background
+            </h2>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+              <p>
+                As a dedicated cybersecurity and networking professional, I bring over 5 years of hands-on experience 
+                in designing, implementing, and managing secure network infrastructure. My expertise spans across 
+                network security, system administration, and IT infrastructure management.
+              </p>
+              <p>
+                I specialize in building robust security frameworks, implementing comprehensive network monitoring 
+                solutions, and ensuring compliance with industry standards. My approach combines deep technical 
+                knowledge with practical problem-solving skills to deliver reliable and secure IT solutions.
+              </p>
+              <p>
+                Throughout my career, I've successfully managed complex network deployments, conducted security 
+                audits, and led incident response initiatives. I'm passionate about staying current with emerging 
+                cybersecurity threats and implementing proactive defense strategies.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      {/* Awards & Achievements */}
-      <section>
-        <h2 className="font-[var(--font-pirata)] text-3xl mb-6 text-sun-dark">
-          🏆 Battles Won
-        </h2>
-        <ol className="list-decimal list-inside space-y-2">
-          <li>First Place - The Great Forensic Hunt 2025, Curtin University, (Curtin Cyber Security Club)</li>
-          <li>First Place - WeMoney Financial Wellness AI Hackathon, WeMoney</li>
-          <li>First Place - New Light Hackathon, December 2024, Curtin University (Hosted by ComSSA)</li>
-          <li>First Place - Case Night for Future Engineers, May 2025, UWA (Hosted by Venture X Enitiate)</li>
-        </ol>
-      </section>
+        {/* Education Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
+            Education
+          </h2>
+          <div className="space-y-6">
+            <div
+              className="p-6 rounded-xl"
+              style={{
+                backgroundColor: 'var(--card)',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-md)'
+              }}
+            >
+              <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--primary)' }}>
+                Master of Information Technology
+              </h3>
+              <p className="font-medium mb-2" style={{ color: 'var(--foreground)' }}>
+                Murdoch University
+              </p>
+              <ul className="text-sm space-y-1" style={{ color: 'var(--muted-foreground)' }}>
+                <li>• Major in Cybersecurity and Networking</li>
+                <li>• Research in IoT devices security using Machine Learning</li>
+                <li>• GPA 3.33/4</li>
+              </ul>
+            </div>
+            <div
+              className="p-6 rounded-xl"
+              style={{
+                backgroundColor: 'var(--card)',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-md)'
+              }}
+            >
+              <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--primary)' }}>
+                BSc Mathematics (Honours)
+              </h3>
+              <p className="font-medium mb-2" style={{ color: 'var(--foreground)' }}>
+                University of Delhi
+              </p>
+              <ul className="text-sm space-y-1" style={{ color: 'var(--muted-foreground)' }}>
+                <li>• Major in Mathematics</li>
+                <li>• Minor in Physics</li>
+                <li>• GPA 8.4/10</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Certifications Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
+            Professional Certifications
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "Blue Team Level 1 - Security Blue Team Academy",
+              "CompTIA Security+ SYO-701 - CompTIA",
+              "Cisco Certified Network Professional-ENCOR (CCNP) - Cisco",
+              "Cisco Certified Network Professional-ENRSI (CCNP) - Cisco",
+              "Mental Health in Cyber Security - Security Blue Team Academy"
+            ].map((cert, index) => (
+              <div
+                key={index}
+                className="p-4 rounded-lg border-l-4"
+                style={{
+                  backgroundColor: 'var(--muted)',
+                  borderLeftColor: 'var(--primary)'
+                }}
+              >
+                <span className="font-medium text-sm" style={{ color: 'var(--foreground)' }}>
+                  {cert}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Awards Section */}
+        <section>
+          <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
+            Awards & Achievements
+          </h2>
+          <div className="space-y-4">
+            {[
+              "First Place - The Great Forensic Hunt 2025, Curtin University (Curtin Cyber Security Club)",
+              "First Place - WeMoney Financial Wellness AI Hackathon, WeMoney",
+              "First Place - New Light Hackathon, December 2024, Curtin University (Hosted by ComSSA)",
+              "First Place - Case Night for Future Engineers, May 2025, UWA (Hosted by Venture X Enitiate)"
+            ].map((award, index) => (
+              <div
+                key={index}
+                className="flex items-start p-4 rounded-lg"
+                style={{
+                  backgroundColor: 'var(--card)',
+                  border: '1px solid var(--border)'
+                }}
+              >
+                <span
+                  className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-4 text-sm font-bold"
+                  style={{
+                    backgroundColor: 'var(--primary)',
+                    color: 'var(--primary-foreground)'
+                  }}
+                >
+                  {index + 1}
+                </span>
+                <span className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+                  {award}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

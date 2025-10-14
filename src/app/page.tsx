@@ -1,0 +1,202 @@
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-20 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="fade-in">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                <span style={{ color: 'var(--foreground)' }}>Cybersecurity &</span>
+                <br />
+                <span style={{ color: 'var(--primary)' }}>Network Professional</span>
+              </h1>
+              <p className="text-lg leading-relaxed mb-8" style={{ color: 'var(--muted-foreground)' }}>
+                Experienced cybersecurity and networking professional specializing in network security, 
+                infrastructure management, and system administration. Passionate about securing digital 
+                infrastructure and building robust network solutions.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                  style={{
+                    backgroundColor: 'var(--primary)',
+                    color: 'var(--primary-foreground)',
+                    boxShadow: 'var(--shadow-lg)'
+                  }}
+                >
+                  Get In Touch
+                </Link>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold border transition-all duration-300 hover:scale-105"
+                  style={{
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)',
+                    backgroundColor: 'var(--background)'
+                  }}
+                >
+                  View Projects
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <div
+                className="aspect-square rounded-2xl p-8 backdrop-blur-sm"
+                style={{
+                  backgroundColor: 'var(--card)',
+                  border: '1px solid var(--border)',
+                  boxShadow: 'var(--shadow-xl)'
+                }}
+              >
+                <div className="h-full flex items-center justify-center">
+                  <div className="text-center space-y-4">
+                    <div
+                      className="w-20 h-20 rounded-full mx-auto flex items-center justify-center"
+                      style={{ backgroundColor: 'var(--primary)' }}
+                    >
+                      <svg className="w-10 h-10" style={{ color: 'var(--primary-foreground)' }} fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold" style={{ color: 'var(--foreground)' }}>
+                      Network Security Expert
+                    </h3>
+                    <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+                      Securing digital infrastructure with advanced cybersecurity solutions
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+              Professional Services
+            </h2>
+            <p className="text-lg" style={{ color: 'var(--muted-foreground)' }}>
+              Comprehensive cybersecurity and networking solutions
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Network Security",
+                description: "Advanced firewall configuration, intrusion detection, and network monitoring solutions.",
+                icon: "🛡️"
+              },
+              {
+                title: "Infrastructure Management",
+                description: "Complete IT infrastructure planning, implementation, and ongoing maintenance.",
+                icon: "🏗️"
+              },
+              {
+                title: "System Administration",
+                description: "Server management, cloud deployment, and system optimization services.",
+                icon: "⚙️"
+              },
+              {
+                title: "Security Auditing",
+                description: "Comprehensive security assessments and vulnerability analysis.",
+                icon: "🔍"
+              },
+              {
+                title: "Compliance Management",
+                description: "Ensuring your systems meet industry standards and regulatory requirements.",
+                icon: "📋"
+              },
+              {
+                title: "Incident Response",
+                description: "24/7 security incident response and disaster recovery planning.",
+                icon: "🚨"
+              }
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-xl transition-all duration-300 hover:scale-105 stats-card"
+                style={{
+                  backgroundColor: 'var(--card)',
+                  border: '1px solid var(--border)',
+                  boxShadow: 'var(--shadow-md)'
+                }}
+              >
+                <div className="text-3xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { number: "5+", label: "Years Experience", description: "In cybersecurity and networking" },
+              { number: "50+", label: "Projects Completed", description: "Network security implementations" },
+              { number: "99.9%", label: "Uptime Achieved", description: "For managed infrastructure" }
+            ].map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-8 rounded-xl stats-card transition-all duration-300"
+                style={{
+                  backgroundColor: 'var(--card)',
+                  border: '1px solid var(--border)',
+                  boxShadow: 'var(--shadow-lg)'
+                }}
+              >
+                <div className="text-4xl lg:text-5xl font-bold mb-2" style={{ color: 'var(--primary)' }}>
+                  {stat.number}
+                </div>
+                <div className="text-lg font-semibold mb-2" style={{ color: 'var(--foreground)' }}>
+                  {stat.label}
+                </div>
+                <div className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+                  {stat.description}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+            Ready to Secure Your Infrastructure?
+          </h2>
+          <p className="text-lg mb-8" style={{ color: 'var(--muted-foreground)' }}>
+            Let's discuss how I can help strengthen your network security and optimize your IT infrastructure.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105"
+            style={{
+              backgroundColor: 'var(--primary)',
+              color: 'var(--primary-foreground)',
+              boxShadow: 'var(--shadow-xl)'
+            }}
+          >
+            Start a Conversation
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

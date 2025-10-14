@@ -238,3 +238,34 @@ body {
   background: var(--accent);
   color: var(--accent-foreground);
 }
+
+/* Navigation and link styles */
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.hover-link {
+  color: var(--muted-foreground);
+}
+
+.hover-link:hover {
+  color: var(--primary) !important;
+}
+
+/* Footer link hover effects */
+.footer-link:hover {
+  color: var(--primary);
+}
+
+/* Theme toggle hover effect */
+.theme-toggle:hover {
+  transform: scale(1.05);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Stats card hover effect */
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}

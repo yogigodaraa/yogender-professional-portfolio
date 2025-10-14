@@ -18,6 +18,18 @@ export default function ProjectsPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
             {
+              title: "One Piece Anime Portfolio Website",
+              description: "A creative, interactive portfolio website featuring One Piece anime theme with 3D island models, immersive navigation, and pirate-themed design elements.",
+              technologies: ["Next.js", "React", "Three.js", "React Three Fiber", "Tailwind CSS", "TypeScript"],
+              category: "Web Development"
+            },
+            {
+              title: "Blue Sentinel - Log Analysis Platform",
+              description: "Advanced cybersecurity log analysis platform with real-time monitoring, threat detection, and automated incident response capabilities.",
+              technologies: ["Python", "Elasticsearch", "Kibana", "Machine Learning", "Django", "PostgreSQL"],
+              category: "Cybersecurity"
+            },
+            {
               title: "Zero Trust Network Implementation",
               description: "Designed and deployed a zero trust architecture for a multi-site enterprise, ensuring granular access controls and continuous authentication.",
               technologies: ["Zero Trust", "Microsegmentation", "IAM", "Continuous Authentication"],

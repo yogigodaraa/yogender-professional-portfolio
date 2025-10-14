@@ -16,7 +16,7 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
+          {[
             {
               title: "One Piece Anime Portfolio Website",
               description: "A creative, interactive portfolio website featuring One Piece anime theme with 3D island models, immersive navigation, and pirate-themed design elements.",
@@ -28,106 +28,70 @@ export default function ProjectsPage() {
               description: "Advanced cybersecurity log analysis platform with real-time monitoring, threat detection, and automated incident response capabilities.",
               technologies: ["Python", "Elasticsearch", "Kibana", "Machine Learning", "Django", "PostgreSQL"],
               category: "Cybersecurity"
-            },
-            {
-              title: "Zero Trust Network Implementation",
-              description: "Designed and deployed a zero trust architecture for a multi-site enterprise, ensuring granular access controls and continuous authentication.",
-              technologies: ["Zero Trust", "Microsegmentation", "IAM", "Continuous Authentication"],
-              category: "Network Security"
-            },
-            {
-              title: "Hybrid Cloud Security Automation",
-              description: "Automated security policy enforcement and monitoring across AWS and Azure hybrid environments using Infrastructure as Code.",
-              technologies: ["AWS", "Azure", "Terraform", "Security Automation"],
-              category: "Cloud Architecture"
-            },
-            {
-              title: "Custom SIEM Integration",
-              description: "Developed and integrated a custom SIEM solution for real-time log aggregation, threat detection, and compliance reporting.",
-              technologies: ["SIEM", "Log Aggregation", "Threat Detection", "Compliance"],
-              category: "Security Tools"
-            },
-            {
-              title: "Advanced Phishing Detection Platform",
-              description: "Built a machine learning-powered platform to detect and block phishing attempts across email and web traffic.",
-              technologies: ["Machine Learning", "Email Security", "Web Filtering", "Threat Intelligence"],
-              category: "Cybersecurity"
-            },
-            {
-              title: "SD-WAN Performance Optimization",
-              description: "Optimized SD-WAN deployment for high availability and performance, including automated failover and traffic analytics.",
-              technologies: ["SD-WAN", "Traffic Analytics", "High Availability", "Automation"],
-              category: "Network Management"
-            },
-            {
-              title: "Automated GDPR Compliance Toolkit",
-              description: "Created a toolkit for automated GDPR compliance checks, risk assessments, and reporting for cloud-based applications.",
-              technologies: ["GDPR", "Risk Assessment", "Automation", "Reporting"],
-              category: "Governance"
             }
-            ].map((project, index) => (
+          ].map((project, index) => (
             <div
               key={index}
               className="group cursor-pointer transition-all duration-300 hover:scale-105"
             >
               <div
-              className="p-6 rounded-xl h-full border"
-              style={{
-                backgroundColor: 'var(--card)',
-                borderColor: 'var(--border)',
-                boxShadow: 'var(--shadow-md)'
-              }}
-              >
-              <div className="flex items-center justify-between mb-4">
-                <span
-                className="px-3 py-1 text-xs font-semibold rounded-full"
+                className="p-6 rounded-xl h-full border"
                 style={{
-                  backgroundColor: 'var(--primary)',
-                  color: 'var(--primary-foreground)'
+                  backgroundColor: 'var(--card)',
+                  borderColor: 'var(--border)',
+                  boxShadow: 'var(--shadow-md)'
                 }}
-                >
-                {project.category}
-                </span>
-                <div
-                className="w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: 'var(--muted)' }}
-                >
-                <svg className="w-4 h-4" style={{ color: 'var(--muted-foreground)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-                </div>
-              </div>
-              
-              <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                {project.title}
-              </h3>
-              
-              <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--muted-foreground)' }}>
-                {project.description}
-              </p>
-              
-              <div className="space-y-2">
-                <h4 className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--muted-foreground)' }}>
-                Technologies
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, techIndex) => (
+              >
+                <div className="flex items-center justify-between mb-4">
                   <span
-                  key={techIndex}
-                  className="px-2 py-1 text-xs rounded"
-                  style={{
-                    backgroundColor: 'var(--muted)',
-                    color: 'var(--muted-foreground)'
-                  }}
+                    className="px-3 py-1 text-xs font-semibold rounded-full"
+                    style={{
+                      backgroundColor: 'var(--primary)',
+                      color: 'var(--primary-foreground)'
+                    }}
                   >
-                  {tech}
+                    {project.category}
                   </span>
-                ))}
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--muted)' }}
+                  >
+                    <svg className="w-4 h-4" style={{ color: 'var(--muted-foreground)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
+                
+                <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
+                  {project.title}
+                </h3>
+                
+                <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--muted-foreground)' }}>
+                  {project.description}
+                </p>
+                
+                <div className="space-y-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--muted-foreground)' }}>
+                    Technologies
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-2 py-1 text-xs rounded"
+                        style={{
+                          backgroundColor: 'var(--muted)',
+                          color: 'var(--muted-foreground)'
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-            ))}
+          ))}
         </div>
 
         {/* Call to Action */}

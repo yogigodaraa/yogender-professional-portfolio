@@ -166,8 +166,8 @@ function Footer() {
             </h4>
             <div className="space-y-2 text-sm">
               <div><FooterLink href="mailto:your.email@example.com">Email</FooterLink></div>
-              <div><FooterLink href="https://linkedin.com/in/yourprofile">LinkedIn</FooterLink></div>
-              <div><FooterLink href="https://github.com/yourprofile">GitHub</FooterLink></div>
+              <div><FooterLink href="https://www.linkedin.com/in/yogender-godara/">LinkedIn</FooterLink></div>
+              <div><FooterLink href="https://github.com/yogigodaraa">GitHub</FooterLink></div>
             </div>
           </div>
         </div>

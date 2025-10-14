@@ -97,15 +97,16 @@ export default function ResumeDownload() {
       </a>
 
       {/* LinkedIn Profile */}
+            {/* LinkedIn Profile */}
       <a
-        href="https://linkedin.com/in/yogender-godara"
+        href="https://www.linkedin.com/in/yogender-godara/"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-700 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-800 hover:to-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition-all"
+        className="group flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-all duration-200"
         onClick={() => {
-          if (typeof window !== 'undefined' && (window as any).trackPortfolioEvent) {
+          if (typeof window !== 'undefined' && (window as any).gtag) {
             (window as any).trackPortfolioEvent('linkedin_click', {
-              source: 'portfolio_site'
+              location: 'resume_section'
             });
           }
         }}

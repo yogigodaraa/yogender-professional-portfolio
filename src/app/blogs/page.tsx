@@ -3,26 +3,42 @@ import Link from "next/link";
 // for now, keep posts inline. Later you can load from a CMS or markdown files.
 const posts = [
   {
-    slug: "blue-team-beginners-treasure-map",
-    title: "Coming Soon",
-    excerpt:
-      "Soon",
-    date: "2025-08-18",
-    tags: ["coming-soon"],
+    slug: "cybersecurity-fundamentals",
+    title: "Cybersecurity Fundamentals for Modern Networks",
+    excerpt: "Essential cybersecurity principles and best practices for securing modern network infrastructure.",
+    date: "2025-11-01",
+    tags: ["cybersecurity", "networking", "fundamentals"],
+    status: "coming-soon"
   },
+  {
+    slug: "blue-team-strategies",
+    title: "Blue Team Defense Strategies",
+    excerpt: "Comprehensive guide to blue team methodologies and defensive cybersecurity practices.",
+    date: "2025-11-15",
+    tags: ["blue-team", "defense", "incident-response"],
+    status: "coming-soon"
+  },
+  {
+    slug: "network-security-automation",
+    title: "Automating Network Security Monitoring",
+    excerpt: "How to implement automated security monitoring solutions for enterprise networks.",
+    date: "2025-12-01",
+    tags: ["automation", "monitoring", "security"],
+    status: "coming-soon"
+  }
 ];
 
 export const metadata = {
-  title: "Blogs | One Piece Portfolio",
-  description: "Writings from the voyage — dev notes, security, and projects.",
+  title: "Blog | Yogender Godara - Cybersecurity Professional",
+  description: "Technical articles about cybersecurity, network security, and IT infrastructure best practices.",
 };
 
 export default function BlogsPage() {
   return (
     <section className="mx-auto max-w-6xl p-8">
-      <h1 className="text-3xl font-bold mb-2">📝 Blogs</h1>
+      <h1 className="text-3xl font-bold mb-2">📝 Technical Blog</h1>
       <p className="text-stone-700 mb-6">
-        Writings from the voyage — tutorials, notes, and reflections.
+        Technical articles, cybersecurity insights, and best practices from the field.
       </p>
 
       <div className="space-y-4">
@@ -43,17 +59,27 @@ export default function BlogsPage() {
               </ul>
             </div>
             <h2 className="mt-2 text-lg font-semibold">
-              <Link href={`/blogs/${p.slug}`} className="hover:underline">
-                {p.title}
-              </Link>
+              {p.status === 'coming-soon' ? (
+                <span className="text-stone-600">{p.title}</span>
+              ) : (
+                <Link href={`/blogs/${p.slug}`} className="hover:underline">
+                  {p.title}
+                </Link>
+              )}
             </h2>
             <p className="mt-1 text-stone-700">{p.excerpt}</p>
-            <Link
-              href={`/blogs/${p.slug}`}
-              className="mt-3 inline-block text-blue-600 hover:underline"
-            >
-              Read more →
-            </Link>
+            {p.status === 'coming-soon' ? (
+              <span className="mt-3 inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">
+                Coming Soon
+              </span>
+            ) : (
+              <Link
+                href={`/blogs/${p.slug}`}
+                className="mt-3 inline-block text-blue-600 hover:underline"
+              >
+                Read more →
+              </Link>
+            )}
           </article>
         ))}
       </div>

@@ -5,13 +5,12 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            About <span style={{ color: 'var(--primary)' }}>Yogender Godara</span>
+          <span style={{ color: 'var(--primary)' }}>Yogender Godara</span>
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-            Cybersecurity & Network Professional with 5+ years of experience in securing digital infrastructure
+            Cybersecurity & Network Graduate
           </p>
         </div>
-
         {/* Bio Section */}
         <section className="mb-20">
           <div
@@ -27,19 +26,9 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
               <p>
-                As a dedicated cybersecurity and networking professional, I bring over 5 years of hands-on experience 
-                in designing, implementing, and managing secure network infrastructure. My expertise spans across 
-                network security, system administration, and IT infrastructure management.
-              </p>
-              <p>
-                I specialize in building robust security frameworks, implementing comprehensive network monitoring 
-                solutions, and ensuring compliance with industry standards. My approach combines deep technical 
-                knowledge with practical problem-solving skills to deliver reliable and secure IT solutions.
-              </p>
-              <p>
-                Throughout my career, I've successfully managed complex network deployments, conducted security 
-                audits, and led incident response initiatives. I'm passionate about staying current with emerging 
-                cybersecurity threats and implementing proactive defense strategies.
+                Someone who loves taking things apart, fixing them, and making them better. Networks and cybersecurity are where I get to do that every day,
+                 whether it’s replacing hardware, tracking down a tricky issue, or learning something new just to see how it works.
+                  I like solving real problems, working with good people, and staying curious about how tech connects everything.
               </p>
             </div>
           </div>

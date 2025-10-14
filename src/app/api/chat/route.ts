@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const GEMINI_API_KEY = 'AIzaSyBieLtZBWK8Jru1EG3_SZze8rw7nqU-Cuk';
+// API key removed for security - add your key here when ready to use
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 
 const SYSTEM_PROMPT = `You are an AI assistant representing Yogender Godara, a cybersecurity and networking professional. You have comprehensive knowledge about his background, skills, and experience. Here's what you know about Yogender:
 

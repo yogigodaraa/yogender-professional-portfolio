@@ -122,7 +122,10 @@ export default function AboutPage() {
               "First Place - The Great Forensic Hunt 2025, Curtin University (Curtin Cyber Security Club)",
               "First Place - WeMoney Financial Wellness AI Hackathon, WeMoney",
               "First Place - New Light Hackathon, December 2024, Curtin University (Hosted by ComSSA)",
-              "First Place - Case Night for Future Engineers, May 2025, UWA (Hosted by Venture X Enitiate)"
+              "First Place - Case Night for Future Engineers, May 2025, UWA (Hosted by Venture X Enitiate)",
+              "Global Excellence Scholarship - Murdoch University (2023)",
+              "International Postgraduate Student Scholarship - Murdoch University (2023)",
+              "Academic Excellence Award - University of Delhi"
             ].map((award, index) => (
               <div
                 key={index}

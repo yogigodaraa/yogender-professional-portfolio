@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ChatBot from '@/components/ChatBot';
+// import ChatBot from '@/components/ChatBot';
 
 export default function Home() {
   return (
@@ -9,15 +9,15 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="fade-in">
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
-                <span style={{ color: 'var(--foreground)' }}>Cybersecurity &</span>
+                            <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                <span style={{ color: 'var(--foreground)' }}>Network &</span>
                 <br />
-                <span style={{ color: 'var(--primary)' }}>Network Professional</span>
+                <span style={{ color: 'var(--primary)' }}>Cybersecurity Graduate</span>
               </h1>
               <p className="text-lg leading-relaxed mb-8" style={{ color: 'var(--muted-foreground)' }}>
-                Experienced cybersecurity and networking professional specializing in network security, 
-                infrastructure management, and system administration. Passionate about securing digital 
-                infrastructure and building robust network solutions.
+                Recent Master's graduate in Cybersecurity and Networking with strong technical foundations 
+                and hands-on experience through internships, research projects, and hackathon wins. 
+                Eager to apply knowledge and contribute fresh ideas in network engineering and cybersecurity roles.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -63,11 +63,11 @@ export default function Home() {
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                       </svg>
                     </div>
-                    <h3 className="text-xl font-semibold" style={{ color: 'var(--foreground)' }}>
-                      Network Security Expert
+                                        <h3 className="text-xl font-semibold" style={{ color: 'var(--foreground)' }}>
+                      IT Graduate
                     </h3>
                     <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
-                      Securing digital infrastructure with advanced cybersecurity solutions
+                      Ready to apply cybersecurity and networking knowledge in real-world challenges
                     </p>
                   </div>
                 </div>
@@ -82,45 +82,45 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
-              Professional Services
+              Core <span style={{ color: 'var(--primary)' }}>Knowledge Areas</span>
             </h2>
             <p className="text-lg" style={{ color: 'var(--muted-foreground)' }}>
-              Comprehensive cybersecurity and networking solutions
+              Academic expertise and practical skills developed through studies and projects
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Network Security",
-                description: "Advanced firewall configuration, intrusion detection, and network monitoring solutions.",
+                title: "Network Design & Implementation",
+                description: "Routing protocols (BGP/OSPF), VLANs, VPNs, NAT, DHCP, QoS, and network infrastructure design.",
+                icon: "🌐"
+              },
+              {
+                title: "Cybersecurity & Compliance",
+                description: "Threat Intelligence, ISO27001, MITRE ATT&CK, Digital Forensics, and security frameworks.",
                 icon: "🛡️"
               },
               {
-                title: "Infrastructure Management",
-                description: "Complete IT infrastructure planning, implementation, and ongoing maintenance.",
-                icon: "🏗️"
+                title: "IoT Security Research",
+                description: "Machine Learning for IoT device security, achieving >88% accuracy in threat detection models.",
+                icon: "🔬"
               },
               {
-                title: "System Administration",
-                description: "Server management, cloud deployment, and system optimization services.",
+                title: "Scripting & Automation",
+                description: "Python, Bash scripting, SQL, and automation for security analysis and network management.",
                 icon: "⚙️"
               },
               {
-                title: "Security Auditing",
-                description: "Comprehensive security assessments and vulnerability analysis.",
-                icon: "🔍"
+                title: "Security Tools & Analysis",
+                description: "CrowdStrike Falcon, Elastic Stack, Wireshark, Nessus, SIEM, and log analysis techniques.",
+                icon: "�"
               },
               {
-                title: "Compliance Management",
-                description: "Ensuring your systems meet industry standards and regulatory requirements.",
-                icon: "📋"
-              },
-              {
-                title: "Incident Response",
-                description: "24/7 security incident response and disaster recovery planning.",
-                icon: "🚨"
+                title: "Professional Certifications",
+                description: "CCNP (ENCOR & ENARSI), CompTIA Security+, Blue Team Level 1, and continuous learning.",
+                icon: "🏆"
               }
-            ].map((service, index) => (
+            ].map((knowledge, index) => (
               <div
                 key={index}
                 className="p-6 rounded-xl transition-all duration-300 hover:scale-105 stats-card"
@@ -130,12 +130,12 @@ export default function Home() {
                   boxShadow: 'var(--shadow-md)'
                 }}
               >
-                <div className="text-3xl mb-4">{service.icon}</div>
+                <div className="text-3xl mb-4">{knowledge.icon}</div>
                 <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
-                  {service.title}
+                  {knowledge.title}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-                  {service.description}
+                  {knowledge.description}
                 </p>
               </div>
             ))}
@@ -148,9 +148,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { number: "5+", label: "Years Experience", description: "In cybersecurity and networking" },
-              { number: "50+", label: "Projects Completed", description: "Network security implementations" },
-              { number: "99.9%", label: "Uptime Achieved", description: "For managed infrastructure" }
+              { number: "4", label: "Hackathon Wins", description: "First place in cybersecurity and tech competitions" },
+              { number: "88%", label: "ML Accuracy", description: "IoT security threat detection research" },
+              { number: "3.3", label: "GPA", description: "Master's in Cybersecurity & Networking" }
             ].map((stat, index) => (
               <div
                 key={index}
@@ -180,10 +180,10 @@ export default function Home() {
       <section className="py-20" style={{ backgroundColor: 'var(--muted)' }}>
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            Ready to Secure Your Infrastructure?
+            Ready to Start My Career Journey?
           </h2>
           <p className="text-lg mb-8" style={{ color: 'var(--muted-foreground)' }}>
-            Let's discuss how I can help strengthen your network security and optimize your IT infrastructure.
+            I'm actively seeking graduate programs, internships, and entry-level opportunities in cybersecurity and networking. Let's connect and discuss how I can contribute to your team.
           </p>
           <Link
             href="/contact"
@@ -199,8 +199,8 @@ export default function Home() {
         </div>
       </section>
       
-      {/* ChatBot Component */}
-      <ChatBot />
+      {/* ChatBot Component - Temporarily hidden for security */}
+      {/* <ChatBot /> */}
     </div>
   );
 }

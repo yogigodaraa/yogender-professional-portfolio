@@ -62,25 +62,32 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-amber-50">
-      <section className="mx-auto max-w-6xl p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-gray-800">
-            📧 Contact Me
+    <main className="min-h-screen py-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+            Get in <span style={{ color: 'var(--primary)' }}>Touch</span>
           </h1>
-          <p className="text-lg text-gray-600 mb-2">
-            Let's discuss your cybersecurity and networking needs, I'll respond promptly! ⚡️
+          <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+            Let's discuss your cybersecurity and networking needs, I'll respond promptly!
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm mt-2" style={{ color: 'var(--muted-foreground)' }}>
             Ready to collaborate on securing your digital infrastructure?
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-amber-200">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              📮 Send Message
+          <div
+            className="p-6 rounded-xl border"
+            style={{
+              backgroundColor: 'var(--card)',
+              borderColor: 'var(--border)',
+              boxShadow: 'var(--shadow-lg)'
+            }}
+          >
+            <h2 className="text-2xl font-semibold mb-6" style={{ color: 'var(--foreground)' }}>
+              Send Message
             </h2>
             
             <form 
@@ -88,7 +95,11 @@ export default function ContactPage() {
               onSubmit={handleSubmit}
             >
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label 
+                  htmlFor="name" 
+                  className="block text-sm font-medium mb-2"
+                  style={{ color: 'var(--foreground)' }}
+                >
                   Your Name *
                 </label>
                 <input 
@@ -96,13 +107,22 @@ export default function ContactPage() {
                   id="name"
                   name="name"
                   placeholder="Enter your full name" 
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" 
+                  className="w-full rounded-lg px-4 py-3 border transition-all focus:outline-none focus:ring-2"
+                  style={{
+                    backgroundColor: 'var(--background)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)'
+                  }}
                   required 
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label 
+                  htmlFor="email" 
+                  className="block text-sm font-medium mb-2"
+                  style={{ color: 'var(--foreground)' }}
+                >
                   Your Email *
                 </label>
                 <input 
@@ -110,20 +130,34 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   placeholder="your.email@example.com" 
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" 
+                  className="w-full rounded-lg px-4 py-3 border transition-all focus:outline-none focus:ring-2"
+                  style={{
+                    backgroundColor: 'var(--background)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)'
+                  }}
                   required 
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label 
+                  htmlFor="message" 
+                  className="block text-sm font-medium mb-2"
+                  style={{ color: 'var(--foreground)' }}
+                >
                   Your Message *
                 </label>
                 <textarea 
                   id="message"
                   name="message"
                   placeholder="Tell me about your project, collaboration ideas, or just say hello!" 
-                  className="w-full rounded-lg border border-gray-300 px-4 py-3 h-32 resize-y focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all" 
+                  className="w-full rounded-lg px-4 py-3 h-32 resize-y border transition-all focus:outline-none focus:ring-2"
+                  style={{
+                    backgroundColor: 'var(--background)',
+                    borderColor: 'var(--border)',
+                    color: 'var(--foreground)'
+                  }}
                   required 
                 />
               </div>
@@ -131,37 +165,53 @@ export default function ContactPage() {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 px-6 py-3 rounded-lg text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 active:scale-95"
+                className="w-full px-6 py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105 active:scale-95"
+                style={{
+                  backgroundColor: 'var(--primary)',
+                  color: 'var(--primary-foreground)'
+                }}
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style={{ color: 'var(--primary-foreground)' }}>
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
                     Sending Message...
                   </span>
                 ) : (
-                  '🚀 Send Message'
+                  'Send Message'
                 )}
               </button>
               
               {submitStatus === 'success' && (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-800 text-sm flex items-center">
-                    <span className="mr-2">✅</span>
-                    Message sent! I'll reply within 24 hours.
+                <div 
+                  className="p-4 border rounded-lg"
+                  style={{
+                    backgroundColor: 'var(--success-bg, #dcfce7)',
+                    borderColor: 'var(--success-border, #86efac)',
+                    color: 'var(--success-text, #166534)'
+                  }}
+                >
+                  <p className="text-sm font-medium">
+                    Message sent successfully! I'll reply within 24 hours.
                   </p>
-                  <p className="text-green-700 text-xs mt-1">
+                  <p className="text-xs mt-1 opacity-80">
                     Your message has been delivered to ygodara28@gmail.com
                   </p>
                 </div>
               )}
               
               {submitStatus === 'error' && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-800 text-sm flex items-center">
-                    <span className="mr-2">❌</span>
+                <div 
+                  className="p-4 border rounded-lg"
+                  style={{
+                    backgroundColor: 'var(--error-bg, #fee2e2)',
+                    borderColor: 'var(--error-border, #fca5a5)',
+                    color: 'var(--error-text, #991b1b)'
+                  }}
+                >
+                  <p className="text-sm font-medium">
                     Something went wrong. Please try again or use the direct contact methods below.
                   </p>
                 </div>
@@ -172,20 +222,29 @@ export default function ContactPage() {
           {/* Contact Information */}
           <div className="space-y-6">
             {/* Quick Contact */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-blue-200">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-                <span className="mr-2">🔗</span>
+            <div
+              className="rounded-xl p-6 border"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-lg)'
+              }}
+            >
+              <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--foreground)' }}>
                 Quick Contact
               </h3>
               <div className="space-y-3">
                 <a 
                   href="mailto:ygodara28@gmail.com" 
-                  className="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
+                  className="flex items-center p-3 rounded-lg transition-colors group border"
+                  style={{
+                    backgroundColor: 'var(--muted)',
+                    borderColor: 'var(--border)'
+                  }}
                 >
-                  <span className="text-2xl mr-3">📧</span>
                   <div>
-                    <p className="font-medium text-gray-800 group-hover:text-blue-600">Email</p>
-                    <p className="text-sm text-gray-600">ygodara28@gmail.com</p>
+                    <p className="font-medium group-hover:opacity-80 transition-opacity" style={{ color: 'var(--foreground)' }}>Email</p>
+                    <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>ygodara28@gmail.com</p>
                   </div>
                 </a>
                 
@@ -193,12 +252,15 @@ export default function ContactPage() {
                   href="https://www.linkedin.com/in/yogender-godara/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
+                  className="flex items-center p-3 rounded-lg transition-colors group border"
+                  style={{
+                    backgroundColor: 'var(--muted)',
+                    borderColor: 'var(--border)'
+                  }}
                 >
-                  <span className="text-2xl mr-3">💼</span>
                   <div>
-                    <p className="font-medium text-gray-800 group-hover:text-blue-600">LinkedIn</p>
-                    <p className="text-sm text-gray-600">Connect professionally</p>
+                    <p className="font-medium group-hover:opacity-80 transition-opacity" style={{ color: 'var(--foreground)' }}>LinkedIn</p>
+                    <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>Connect professionally</p>
                   </div>
                 </a>
                 
@@ -206,38 +268,53 @@ export default function ContactPage() {
                   href="https://github.com/yogigodaraa" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
+                  className="flex items-center p-3 rounded-lg transition-colors group border"
+                  style={{
+                    backgroundColor: 'var(--muted)',
+                    borderColor: 'var(--border)'
+                  }}
                 >
-                  <span className="text-2xl mr-3">💻</span>
                   <div>
-                    <p className="font-medium text-gray-800 group-hover:text-blue-600">GitHub</p>
-                    <p className="text-sm text-gray-600">Check out my code</p>
+                    <p className="font-medium group-hover:opacity-80 transition-opacity" style={{ color: 'var(--foreground)' }}>GitHub</p>
+                    <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>Check out my code</p>
                   </div>
                 </a>
               </div>
             </div>
 
             {/* About Response Time */}
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-200">
-              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                <span className="mr-2">⏰</span>
+            <div
+              className="rounded-xl p-6 border"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-md)'
+              }}
+            >
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
                 Response Time
               </h3>
-              <p className="text-gray-700 text-sm mb-2">
+              <p className="text-sm mb-2" style={{ color: 'var(--foreground)' }}>
                 I typically respond within <strong>24 hours</strong> during weekdays.
               </p>
-              <p className="text-gray-600 text-xs">
+              <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
                 For urgent matters, feel free to reach out via LinkedIn or email directly.
               </p>
             </div>
 
             {/* What I'm Looking For */}
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
-              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                <span className="mr-2">🎯</span>
+            <div
+              className="rounded-xl p-6 border"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-md)'
+              }}
+            >
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--foreground)' }}>
                 Open to Opportunities
               </h3>
-              <ul className="text-sm text-gray-700 space-y-1">
+              <ul className="text-sm space-y-1" style={{ color: 'var(--foreground)' }}>
                 <li>• Network engineer positions</li>
                 <li>• Cyber security analyst roles</li>
                 <li>• Website management projects</li>
@@ -247,7 +324,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </main>
   );
 }

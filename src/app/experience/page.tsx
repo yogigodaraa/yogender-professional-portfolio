@@ -1,3 +1,8 @@
+"use client";
+
+import FadeIn from '@/components/animations/FadeIn';
+import SlideIn from '@/components/animations/SlideIn';
+
 export default function ExperiencePage() {
   const experiences = [
     {
@@ -51,26 +56,33 @@ export default function ExperiencePage() {
   return (
     <main className="min-h-screen py-20">
       <div className="mx-auto max-w-4xl px-4">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            Professional <span style={{ color: 'var(--primary)' }}>Experience</span>
-          </h1>
-          <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-            My journey in cybersecurity, networking, and technology leadership
-          </p>
-        </div>
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+              Professional <span style={{ color: 'var(--primary)' }}>Experience</span>
+            </h1>
+            <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+              My journey in cybersecurity, networking, and technology leadership
+            </p>
+          </div>
+        </FadeIn>
 
         <div className="space-y-8">
           {experiences.map((experience, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-xl border"
-              style={{
-                backgroundColor: 'var(--card)',
-                borderColor: 'var(--border)',
-                boxShadow: 'var(--shadow-md)'
-              }}
+            <SlideIn 
+              key={index} 
+              direction="left"
+              delay={index * 0.1}
+              duration={0.6}
             >
+              <div
+                className="p-6 rounded-xl border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                style={{
+                  backgroundColor: 'var(--card)',
+                  borderColor: 'var(--border)',
+                  boxShadow: 'var(--shadow-md)'
+                }}
+              >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div className="flex-1">
                   <h2 className="text-xl font-semibold mb-1" style={{ color: 'var(--foreground)' }}>
@@ -117,6 +129,7 @@ export default function ExperiencePage() {
                 </ul>
               </div>
             </div>
+            </SlideIn>
           ))}
         </div>
       </div>

@@ -1,11 +1,47 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
+import FadeIn from '@/components/animations/FadeIn';
+import SlideIn from '@/components/animations/SlideIn';
 
 // Updated contact form with reliable email API - October 2025 (Formspree: mnngoawq)
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [messageLength, setMessageLength] = useState(0);
+  const [formErrors, setFormErrors] = useState<{name?: string; email?: string; subject?: string; message?: string}>({});
+  const maxMessageLength = 1000;
+
+  const validateForm = (formData: FormData) => {
+    const errors: {name?: string; email?: string; subject?: string; message?: string} = {};
+    
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const subject = formData.get('subject') as string;
+    const message = formData.get('message') as string;
+    
+    if (!name || name.trim().length < 2) {
+      errors.name = 'Name must be at least 2 characters';
+    }
+    
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+    
+    if (!subject || subject.trim().length < 3) {
+      errors.subject = 'Subject must be at least 3 characters';
+    }
+    
+    if (!message || message.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters';
+    }
+    
+    return errors;
+  };
+
+  const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setMessageLength(e.target.value.length);
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,11 +50,22 @@ export default function ContactPage() {
 
     const formData = new FormData(e.currentTarget);
     
+    // Validate form
+    const errors = validateForm(formData);
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      setIsSubmitting(false);
+      return;
+    }
+    
+    setFormErrors({});
+    
     // Generate a unique tracking ID for this message
     const trackingId = `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     
     // Add tracking information to the form
-    formData.append('_subject', `[PORTFOLIO-${trackingId}] New Contact from Portfolio`);
+    const subject = formData.get('subject') as string;
+    formData.append('_subject', `[PORTFOLIO-${trackingId}] ${subject}`);
     formData.append('_replyto', formData.get('email') as string);
     formData.append('tracking_id', trackingId);
     
@@ -64,31 +111,34 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            Get in <span style={{ color: 'var(--primary)' }}>Touch</span>
-          </h1>
-          <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-            Let's discuss your cybersecurity and networking needs, I'll respond promptly!
-          </p>
-          <p className="text-sm mt-2" style={{ color: 'var(--muted-foreground)' }}>
-            Ready to collaborate on securing your digital infrastructure?
-          </p>
-        </div>
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+              Get in <span style={{ color: 'var(--primary)' }}>Touch</span>
+            </h1>
+            <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+              Let's discuss your cybersecurity and networking needs, I'll respond promptly!
+            </p>
+            <p className="text-sm mt-2" style={{ color: 'var(--muted-foreground)' }}>
+              Ready to collaborate on securing your digital infrastructure?
+            </p>
+          </div>
+        </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <div
-            className="p-6 rounded-xl border"
-            style={{
-              backgroundColor: 'var(--card)',
-              borderColor: 'var(--border)',
-              boxShadow: 'var(--shadow-lg)'
-            }}
-          >
-            <h2 className="text-2xl font-semibold mb-6" style={{ color: 'var(--foreground)' }}>
-              Send Message
-            </h2>
+          <SlideIn direction="left" delay={0.1}>
+            <div
+              className="p-6 rounded-xl border transition-all duration-300 hover:shadow-2xl"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-lg)'
+              }}
+            >
+              <h2 className="text-2xl font-semibold mb-6" style={{ color: 'var(--foreground)' }}>
+                Send Message
+              </h2>
             
             <form 
               className="space-y-4" 
@@ -110,11 +160,14 @@ export default function ContactPage() {
                   className="w-full rounded-lg px-4 py-3 border transition-all focus:outline-none focus:ring-2"
                   style={{
                     backgroundColor: 'var(--background)',
-                    borderColor: 'var(--border)',
+                    borderColor: formErrors.name ? '#ef4444' : 'var(--border)',
                     color: 'var(--foreground)'
                   }}
                   required 
                 />
+                {formErrors.name && (
+                  <p className="text-xs mt-1" style={{ color: '#ef4444' }}>{formErrors.name}</p>
+                )}
               </div>
               
               <div>
@@ -133,21 +186,60 @@ export default function ContactPage() {
                   className="w-full rounded-lg px-4 py-3 border transition-all focus:outline-none focus:ring-2"
                   style={{
                     backgroundColor: 'var(--background)',
-                    borderColor: 'var(--border)',
+                    borderColor: formErrors.email ? '#ef4444' : 'var(--border)',
                     color: 'var(--foreground)'
                   }}
                   required 
                 />
+                {formErrors.email && (
+                  <p className="text-xs mt-1" style={{ color: '#ef4444' }}>{formErrors.email}</p>
+                )}
               </div>
               
               <div>
                 <label 
-                  htmlFor="message" 
+                  htmlFor="subject" 
                   className="block text-sm font-medium mb-2"
                   style={{ color: 'var(--foreground)' }}
                 >
-                  Your Message *
+                  Subject *
                 </label>
+                <input 
+                  type="text" 
+                  id="subject"
+                  name="subject"
+                  placeholder="What's this about?" 
+                  className="w-full rounded-lg px-4 py-3 border transition-all focus:outline-none focus:ring-2"
+                  style={{
+                    backgroundColor: 'var(--background)',
+                    borderColor: formErrors.subject ? '#ef4444' : 'var(--border)',
+                    color: 'var(--foreground)'
+                  }}
+                  required 
+                />
+                {formErrors.subject && (
+                  <p className="text-xs mt-1" style={{ color: '#ef4444' }}>{formErrors.subject}</p>
+                )}
+              </div>
+              
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <label 
+                    htmlFor="message" 
+                    className="block text-sm font-medium"
+                    style={{ color: 'var(--foreground)' }}
+                  >
+                    Your Message *
+                  </label>
+                  <span 
+                    className="text-xs"
+                    style={{ 
+                      color: messageLength > maxMessageLength ? '#ef4444' : 'var(--muted-foreground)' 
+                    }}
+                  >
+                    {messageLength}/{maxMessageLength}
+                  </span>
+                </div>
                 <textarea 
                   id="message"
                   name="message"
@@ -155,11 +247,16 @@ export default function ContactPage() {
                   className="w-full rounded-lg px-4 py-3 h-32 resize-y border transition-all focus:outline-none focus:ring-2"
                   style={{
                     backgroundColor: 'var(--background)',
-                    borderColor: 'var(--border)',
+                    borderColor: formErrors.message ? '#ef4444' : 'var(--border)',
                     color: 'var(--foreground)'
                   }}
+                  maxLength={maxMessageLength}
+                  onChange={handleMessageChange}
                   required 
                 />
+                {formErrors.message && (
+                  <p className="text-xs mt-1" style={{ color: '#ef4444' }}>{formErrors.message}</p>
+                )}
               </div>
               
               <button 
@@ -218,9 +315,11 @@ export default function ContactPage() {
               )}
             </form>
           </div>
+          </SlideIn>
 
           {/* Contact Information */}
-          <div className="space-y-6">
+          <SlideIn direction="right" delay={0.2}>
+            <div className="space-y-6">
             {/* Quick Contact */}
             <div
               className="rounded-xl p-6 border"
@@ -236,12 +335,20 @@ export default function ContactPage() {
               <div className="space-y-3">
                 <a 
                   href="mailto:ygodara28@gmail.com" 
-                  className="flex items-center p-3 rounded-lg transition-colors group border"
+                  className="flex items-center gap-3 p-3 rounded-lg transition-all duration-300 group border hover:scale-105"
                   style={{
                     backgroundColor: 'var(--muted)',
                     borderColor: 'var(--border)'
                   }}
                 >
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'var(--primary)' }}
+                  >
+                    <svg className="w-5 h-5" style={{ color: 'var(--primary-foreground)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-medium group-hover:opacity-80 transition-opacity" style={{ color: 'var(--foreground)' }}>Email</p>
                     <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>ygodara28@gmail.com</p>
@@ -252,12 +359,20 @@ export default function ContactPage() {
                   href="https://www.linkedin.com/in/yogender-godara/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-3 rounded-lg transition-colors group border"
+                  className="flex items-center gap-3 p-3 rounded-lg transition-all duration-300 group border hover:scale-105"
                   style={{
                     backgroundColor: 'var(--muted)',
                     borderColor: 'var(--border)'
                   }}
                 >
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'var(--primary)' }}
+                  >
+                    <svg className="w-5 h-5" style={{ color: 'var(--primary-foreground)' }} fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-medium group-hover:opacity-80 transition-opacity" style={{ color: 'var(--foreground)' }}>LinkedIn</p>
                     <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>Connect professionally</p>
@@ -268,18 +383,52 @@ export default function ContactPage() {
                   href="https://github.com/yogigodaraa" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-3 rounded-lg transition-colors group border"
+                  className="flex items-center gap-3 p-3 rounded-lg transition-all duration-300 group border hover:scale-105"
                   style={{
                     backgroundColor: 'var(--muted)',
                     borderColor: 'var(--border)'
                   }}
                 >
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'var(--primary)' }}
+                  >
+                    <svg className="w-5 h-5" style={{ color: 'var(--primary-foreground)' }} fill="currentColor" viewBox="0 0 24 24">
+                      <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-medium group-hover:opacity-80 transition-opacity" style={{ color: 'var(--foreground)' }}>GitHub</p>
                     <p className="text-sm" style={{ color: 'var(--muted-foreground)' }}>Check out my code</p>
                   </div>
                 </a>
               </div>
+            </div>
+
+            {/* Availability Status */}
+            <div
+              className="rounded-xl p-6 border"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-md)'
+              }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>
+                  Availability Status
+                </h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                  <span className="text-xs font-medium text-green-600">Available</span>
+                </div>
+              </div>
+              <p className="text-sm mb-2" style={{ color: 'var(--foreground)' }}>
+                Currently open to new opportunities and projects
+              </p>
+              <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
+                Best time to reach: <strong>Mon-Fri, 9AM-5PM AWST</strong>
+              </p>
             </div>
 
             {/* About Response Time */}
@@ -323,6 +472,7 @@ export default function ContactPage() {
               </ul>
             </div>
           </div>
+          </SlideIn>
         </div>
       </div>
     </main>

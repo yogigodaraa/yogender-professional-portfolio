@@ -1,53 +1,64 @@
+"use client";
+
+import FadeIn from '@/components/animations/FadeIn';
+import SlideIn from '@/components/animations/SlideIn';
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen py-20">
       <div className="mx-auto max-w-4xl px-4">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-          <span style={{ color: 'var(--primary)' }}>Yogender Godara</span>
-          </h1>
-          <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-            Cybersecurity & Network Graduate
-          </p>
-        </div>
-        {/* Bio Section */}
-        <section className="mb-20">
-          <div
-            className="p-8 rounded-2xl"
-            style={{
-              backgroundColor: 'var(--card)',
-              border: '1px solid var(--border)',
-              boxShadow: 'var(--shadow-lg)'
-            }}
-          >
-            <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-              Professional Background
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
-              <p>
-                Someone who loves taking things apart, fixing them, and making them better. Networks and cybersecurity are where I get to do that every day,
-                 whether it’s replacing hardware, tracking down a tricky issue, or learning something new just to see how it works.
-                  I like solving real problems, working with good people, and staying curious about how tech connects everything.
-              </p>
-            </div>
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+            <span style={{ color: 'var(--primary)' }}>Yogender Godara</span>
+            </h1>
+            <p className="text-lg leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+              Cybersecurity & Network Graduate
+            </p>
           </div>
-        </section>
-
-        {/* Education Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
-            Education
-          </h2>
-          <div className="space-y-6">
+        </FadeIn>
+        
+        {/* Bio Section */}
+        <SlideIn direction="up" delay={0.1}>
+          <section className="mb-20">
             <div
-              className="p-6 rounded-xl"
+              className="p-8 rounded-2xl"
               style={{
                 backgroundColor: 'var(--card)',
                 border: '1px solid var(--border)',
-                boxShadow: 'var(--shadow-md)'
+                boxShadow: 'var(--shadow-lg)'
               }}
             >
+              <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+                Professional Background
+              </h2>
+              <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+                <p>
+                  Someone who loves taking things apart, fixing them, and making them better. Networks and cybersecurity are where I get to do that every day,
+                   whether it's replacing hardware, tracking down a tricky issue, or learning something new just to see how it works.
+                    I like solving real problems, working with good people, and staying curious about how tech connects everything.
+                </p>
+              </div>
+            </div>
+          </section>
+        </SlideIn>
+
+        {/* Education Section */}
+        <SlideIn direction="left" delay={0.2}>
+          <section className="mb-20">
+            <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
+              Education
+            </h2>
+            <div className="space-y-6">
+              <div
+                className="p-6 rounded-xl"
+                style={{
+                  backgroundColor: 'var(--card)',
+                  border: '1px solid var(--border)',
+                  boxShadow: 'var(--shadow-md)'
+                }}
+              >
               <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--primary)' }}>
                 Master of Information Technology
               </h3>
@@ -82,12 +93,14 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        </SlideIn>
 
         {/* Certifications Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
-            Professional Certifications
-          </h2>
+        <SlideIn direction="right" delay={0.3}>
+          <section className="mb-20">
+            <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
+              Professional Certifications
+            </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {[
               "Blue Team Level 1 - Security Blue Team Academy",
@@ -111,12 +124,14 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </SlideIn>
 
         {/* Awards Section */}
-        <section>
-          <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
-            Awards & Achievements
-          </h2>
+        <FadeIn delay={0.4}>
+          <section>
+            <h2 className="text-3xl font-bold mb-12 text-center" style={{ color: 'var(--foreground)' }}>
+              Awards & Achievements
+            </h2>
           <div className="space-y-4">
             {[
               "First Place - The Great Forensic Hunt 2025, Curtin University (Curtin Cyber Security Club)",
@@ -151,6 +166,7 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        </FadeIn>
       </div>
     </main>
   );

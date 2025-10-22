@@ -2,6 +2,8 @@
 
 import FadeIn from '@/components/animations/FadeIn';
 import SlideIn from '@/components/animations/SlideIn';
+import SkillsMatrix from '@/components/SkillsMatrix';
+import ToolsAndCertifications from '@/components/ToolsAndCertifications';
 
 export default function AboutPage() {
   const sections = [
@@ -250,6 +252,46 @@ export default function AboutPage() {
             </SlideIn>
           ))}
         </div>
+
+        {/* Skills Matrix Section */}
+        <FadeIn delay={0.3}>
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+                Technical <span style={{ color: 'var(--primary)' }}>Skills Matrix</span>
+              </h2>
+              <p className="text-lg" style={{ color: 'var(--muted-foreground)' }}>
+                Comprehensive overview of my expertise across cybersecurity, networking, and development
+              </p>
+            </div>
+            <div
+              className="p-8 rounded-2xl border"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-lg)'
+              }}
+            >
+              <SkillsMatrix showDescriptions={true} />
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Tools and Certifications Section */}
+        <FadeIn delay={0.5}>
+          <div className="mt-20">
+            <div
+              className="p-8 rounded-2xl border"
+              style={{
+                backgroundColor: 'var(--card)',
+                borderColor: 'var(--border)',
+                boxShadow: 'var(--shadow-lg)'
+              }}
+            >
+              <ToolsAndCertifications showTools={true} showCertifications={true} />
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </main>
   );

@@ -2,6 +2,28 @@ import { ExperienceItem } from '@/types/experience';
 
 export const experiences: ExperienceItem[] = [
   {
+    id: 'kpmg-robogals-mentee',
+    title: 'Cybersecurity Mentee',
+    company: 'KPMG Australia x Robogals Perth',
+    location: 'Perth, Australia',
+    period: '2025',
+    startDate: '2025-09-01',
+    endDate: '2025-10-30',
+    type: 'volunteer',
+    responsibilities: [
+      'Participated in a 6-week mentoring program focused on cybersecurity career development',
+      'Engaged in one-on-one mentoring sessions with Anoo Dowlutrao, discussing career paths and industry insights',
+      'Explored various aspects of cybersecurity roles, daily work life, and professional growth opportunities',
+      'Gained practical insights into bridging the gap between university education and industry requirements'
+    ],
+    skills: ['Cybersecurity', 'Professional Development', 'Career Planning', 'Industry Knowledge'],
+    highlights: [
+      'Completed 6-week structured mentoring program',
+      'Developed clear long-term career goals in cybersecurity',
+      'Gained insights into tech industry teamwork and problem-solving'
+    ]
+  },
+  {
     id: 'web-tech-manager',
     title: 'Web Technology Manager',
     company: 'Western Suburbs Cricket Club',
